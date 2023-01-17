@@ -1,23 +1,21 @@
-import logo from './logo.svg';
+import React, { Component } from 'react'
+import { useLocalStorage } from './useLocalStorage';
 import './App.css';
 
 function App() {
+ 
+  const {setStorageItem: set, removeStorageItem: remove, clearStorage: clear} = useLocalStorage();
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+    <button onClick={() => set('user', 'illyach')}>Register user</button>
+
+    <br/>
+    <button onClick={() => remove('user')}>Remove user</button>
+    <br/>
+    <button onClick={() => clear('user')}>Clear all users</button>
+
     </div>
   );
 }
